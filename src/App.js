@@ -94,7 +94,7 @@ function App() {
 
   return (
     <>
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <Navbar title="Textutils" mode={mode} toggleMode={DarkMode} glow={glowButton} handle={handleButtonClick} show={show} />
         <Alert alert={alert}/>
         <Routes>
