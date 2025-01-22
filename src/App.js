@@ -2,16 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/Navbar';
 import Textutils from './components/Textutils';
-import AboutUs from './components/AboutUs';
 import React, { useState } from 'react';
 import Alert from './components/Alert';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Routes,
-  Route,
-  Link
-} from "react-router-dom";
 
 function App() {
   const [mode, setMode] = useState('light');
@@ -94,14 +86,9 @@ function App() {
 
   return (
     <>
-      <Router basename={process.env.PUBLIC_URL}>
         <Navbar title="Textutils" mode={mode} toggleMode={DarkMode} glow={glowButton} handle={handleButtonClick} show={show} />
         <Alert alert={alert}/>
-        <Routes>
-          <Route exact path="/AboutUs" element={<AboutUs style={myStyle} />}/>
-          <Route exact path="/" element={<Textutils Text={myText} showAlert={showAlert} />}/>
-        </Routes>
-      </Router>
+        <Textutils Text={myText} showAlert={showAlert} />
     </>
   );
 }
